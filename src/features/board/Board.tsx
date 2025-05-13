@@ -22,7 +22,7 @@ const BoardDetail = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useDispatch<AppDispatch>();
-  const { statusList, tasks, selectedTask, loading, error, success } =
+  const { statusList, tasks } =
     useSelector((state: RootState) => state.board);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const BoardDetail = () => {
 
   // Handle drag and drop
   const handleDragEnd = async (result: DropResult) => {
-    const { destination, source, type, draggableId } = result;
+    const { destination, source, draggableId } = result;
 
     // Dropped outside the list
     if (!destination) {

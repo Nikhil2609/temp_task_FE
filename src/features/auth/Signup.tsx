@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -8,12 +8,12 @@ import {
 } from "@mui/material";
 // import { GoogleLogin } from '@react-oauth/google';
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import AuthFormWrapper from "../../components/AuthFormWrapper";
 import { registerUser } from "../../redux/slices/authSlice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { AppDispatch } from "../../redux/store";
 import { PUBLIC_ROUTE } from "../../utils/enums";
 
 // Validation schema
@@ -54,7 +54,6 @@ const initialValues: SignupFormValues = {
 const Signup: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const { success } = useSelector((state: RootState) => state.auth);
 
   const handleSubmit = async (
     values: SignupFormValues,
